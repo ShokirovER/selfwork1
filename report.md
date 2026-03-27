@@ -24,7 +24,6 @@
 
 
 ```
-sql
 CREATE SCHEMA IF NOT EXISTS project_management_st21;
 SET search_path TO project_management_st21;
 

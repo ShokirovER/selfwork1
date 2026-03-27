@@ -22,7 +22,8 @@
 
 Для организации данных используются следующие сущности: таблица employees служит справочником сотрудников и хранит их идентификаторы, имена, фамилии и роли; таблица projects представляет собой реестр активных проектов с их названиями и статусами; в таблице tasks описываются задачи внутри проектов (включая внешние ключи, названия и приоритеты); а таблица assignments отвечает за назначение конкретных людей на задачи, связывая идентификаторы сотрудников и соответствующих заданий.
 
-{
+
+```
 CREATE SCHEMA IF NOT EXISTS project_management_st21;
 SET search_path TO project_management_st21;
 
@@ -53,7 +54,8 @@ CREATE TABLE assignments (
     task_id INTEGER REFERENCES tasks(task_id) ON DELETE CASCADE,
     employee_id INTEGER REFERENCES employees(employee_id) ON DELETE CASCADE
 );
-}
+```
+
   
 
 ### 3. Наполнение данными
@@ -62,7 +64,7 @@ CREATE TABLE assignments (
 - 15 сотрудников различных специализаций (PM, Developers, Analysts, QA, DevOps).
 - 5 ключевых задач, соответствующих основным направлениям деятельности компании.
 - 50 записей в таблице назначений, реализующих сложную структуру командного взаимодействия.
-sql
+```
 INSERT INTO employees (first_name, last_name, email, role) VALUES
 ('Иван', 'Петров', 'i.petrov@company.com', 'Project Manager'),
 ('Анна', 'Сидорова', 'a.sidorova@company.com', 'Senior Developer'),
@@ -107,6 +109,7 @@ INSERT INTO assignments (task_id, employee_id) VALUES (5,1),(5,2),(5,3),(5,4),(5
 (29, 2023, 7, 90, 10, 3, 4.7, 'Отлично'),
 (29, 2023, 10, 88, 9, 2, 4.6, 'Хорошо'),
 (29, 2023, 12, 93, 12, 4, 4.9, 'Премия');
+```
  
 Полный [sql_dump](sql_dump.sql)
 

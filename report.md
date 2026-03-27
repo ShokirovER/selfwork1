@@ -22,9 +22,7 @@
 
 Для организации данных используются следующие сущности: таблица employees служит справочником сотрудников и хранит их идентификаторы, имена, фамилии и роли; таблица projects представляет собой реестр активных проектов с их названиями и статусами; в таблице tasks описываются задачи внутри проектов (включая внешние ключи, названия и приоритеты); а таблица assignments отвечает за назначение конкретных людей на задачи, связывая идентификаторы сотрудников и соответствующих заданий.
 
-'''
-sql
-CREATE SCHEMA IF NOT EXISTS project_management_st21;
+'''CREATE SCHEMA IF NOT EXISTS project_management_st21;
 SET search_path TO project_management_st21;
 
 CREATE TABLE employees (
@@ -53,7 +51,7 @@ CREATE TABLE assignments (
     assignment_id SERIAL PRIMARY KEY,
     task_id INTEGER REFERENCES tasks(task_id) ON DELETE CASCADE,
     employee_id INTEGER REFERENCES employees(employee_id) ON DELETE CASCADE
-);
+);'''
   
 
 ### 3. Наполнение данными
